@@ -16,7 +16,7 @@
     
     _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
     
-    [_peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]] }];
+    
 }
 
 
@@ -44,6 +44,7 @@
         
         [_peripheralManager addService:transferService];
     }
+    [_peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:TRANSFER_SERVICE_UUID]] }];
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
